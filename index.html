@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OMBC Weekly Newsletter</title>
+
+  <style>
+    /* =========================
+       OMBC COLORS
+       ========================= */
+    :root {
+      --ole-miss-red: #CE1126;
+      --ole-miss-blue: #14213D;
+      --light-blue: #EAF0F8;
+      --light-gray: #F5F6F8;
+      --dark: #20242A;
+      --white: #FFFFFF;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #F2F3F5;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #20242A;
+    }
+
+    table {
+      border-spacing: 0;
+      border-collapse: collapse;
+    }
+
+    img {
+      border: 0;
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* Main newsletter */
+    .wrapper {
+      width: 100%;
+      background-color: #F2F3F5;
+      padding: 30px 0;
+    }
+
+    .container {
+      width: 600px;
+      max-width: 600px;
+      background-color: #FFFFFF;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      background-color: #14213D;
+      height: 170px;
+    }
+
+    .logo-placeholder {
+      width: 100%;
+      height: 170px;
+      background-color: #14213D;
+      text-align: center;
+      vertical-align: middle;
+      color: #FFFFFF;
+      font-size: 14px;
+    }
+
+    /* Red divider */
+    .red-line {
+      height: 7px;
+      background-color: #CE1126;
+    }
+
+    /* Content */
+    .content {
+      padding: 35px 40px;
+    }
+
+    .eyebrow {
+      color: #CE1126;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 0 0 8px 0;
+    }
+
+    .title {
+      color: #14213D;
+      font-size: 30px;
+      line-height: 36px;
+      font-weight: 700;
+      margin: 0 0 12px 0;
+    }
+
+    .intro {
+      color: #555B65;
+      font-size: 16px;
+      line-height: 25px;
+      margin: 0;
+    }
+
+    /* Section */
+    .section {
+      padding: 0 40px 35px 40px;
+    }
+
+    .section-title {
+      color: #14213D;
+      font-size: 20px;
+      line-height: 26px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .section-title-line {
+      height: 3px;
+      width: 45px;
+      background-color: #CE1126;
+      margin-top: 9px;
+      margin-bottom: 20px;
+    }
+
+    /* Event cards */
+    .event-card {
+      border: 1px solid #E1E4E8;
+      background-color: #FFFFFF;
+    }
+
+    .date-box {
+      width: 100px;
+      background-color: #14213D;
+      text-align: center;
+      vertical-align: middle;
+      color: #FFFFFF;
+    }
+
+    .date-month {
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .date-number {
+      font-size: 34px;
+      font-weight: bold;
+      line-height: 38px;
+    }
+
+    .event-info {
+      padding: 20px;
+      vertical-align: middle;
+    }
+
+    .event-name {
+      color: #14213D;
+      font-size: 19px;
+      font-weight: bold;
+      line-height: 25px;
+      margin: 0 0 7px 0;
+    }
+
+    .event-description {
+      color: #666B73;
+      font-size: 14px;
+      line-height: 21px;
+      margin: 0 0 15px 0;
+    }
+
+    /* Button */
+    .button {
+      display: inline-block;
+      background-color: #CE1126;
+      color: #FFFFFF !important;
+      padding: 11px 18px;
+      font-size: 13px;
+      font-weight: bold;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Guest speaker */
+    .speaker-card {
+      background-color: #EAF0F8;
+    }
+
+    .speaker-photo {
+      width: 210px;
+      vertical-align: middle;
+    }
+
+    .speaker-photo img {
+      width: 210px;
+      height: 210px;
+      object-fit: cover;
+    }
+
+    .speaker-info {
+      padding: 25px;
+      vertical-align: middle;
+    }
+
+    .speaker-label {
+      color: #CE1126;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin: 0 0 7px 0;
+    }
+
+    .speaker-name {
+      color: #14213D;
+      font-size: 22px;
+      line-height: 27px;
+      font-weight: bold;
+      margin: 0 0 8px 0;
+    }
+
+    .speaker-date {
+      color: #CE1126;
+      font-size: 14px;
+      font-weight: bold;
+      margin: 0 0 12px 0;
+    }
+
+    .speaker-description {
+      color: #555B65;
+      font-size: 14px;
+      line-height: 21px;
+      margin: 0 0 17px 0;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #14213D;
+      padding: 30px 40px;
+      text-align: center;
+    }
+
+    .footer-title {
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0 0 7px 0;
+    }
+
+    .footer-text {
+      color: #CBD3DF;
+      font-size: 13px;
+      line-height: 20px;
+      margin: 0 0 20px 0;
+    }
+
+    .social-link {
+      color: #FFFFFF !important;
+      font-size: 13px;
+      font-weight: bold;
+      margin: 0 8px;
+    }
+
+    .footer-small {
+      color: #9EA9B9;
+      font-size: 11px;
+      line-height: 17px;
+      margin-top: 20px;
+    }
+
+    /* =========================
+       MOBILE
+       ========================= */
+    @media screen and (max-width: 620px) {
+
+      .container {
+        width: 100% !important;
+      }
+
+      .content,
+      .section {
+        padding-left: 22px !important;
+        padding-right: 22px !important;
+      }
+
+      .title {
+        font-size: 26px !important;
+        line-height: 32px !important;
+      }
+
+      .speaker-photo,
+      .speaker-photo img {
+        width: 100% !important;
+        height: auto !important;
+      }
+
+      .speaker-info {
+        padding: 22px !important;
+      }
+
+      .date-box {
+        width: 85px !important;
+      }
+
+      .footer {
+        padding-left: 22px !important;
+        padding-right: 22px !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       OUTER BACKGROUND
+       ========================= -->
+
+  <table role="presentation" width="100%" class="wrapper">
+    <tr>
+      <td align="center">
+
+        <!-- =========================
+             MAIN NEWSLETTER
+             ========================= -->
+
+        <table role="presentation" class="container">
+
+          <!-- =========================
+               LOGO / HEADER
+               ========================= -->
+
+          <tr>
+            <td>
+
+              <!--
+                REPLACE THIS ENTIRE TD WITH YOUR LOGO.
+
+                Example:
+                
+
+                
+
+                If your logo has a transparent background,
+                the blue background will show behind it.
+              -->
+                <img
+                  src="ombc-logo.png"
+                  alt="Ole Miss Business Club"
+                  width="600"
+                  style="width:100%; height:auto;"
+                >
+
+             
+            </td>
+          </tr>
+
+
+          <!-- RED BRANDING LINE -->
+
+          <tr>
+            <td class="red-line"></td>
+          </tr>
+
+
+          <!-- =========================
+               INTRO
+               ========================= -->
+
+          <tr>
+            <td class="content">
+
+              <p class="eyebrow">
+                September 14–20
+              </p>
+
+              <h1 class="title">
+                OMBC Weekly
+              </h1>
+
+              <p class="intro">
+                Here's what's happening with the Ole Miss Business Club
+                this week. Come connect, learn, and grow with OMBC.
+              </p>
+
+            </td>
+          </tr>
+
+
+          <!-- =========================
+               THIS WEEK
+               ========================= -->
+
+          <tr>
+            <td class="section">
+
+              <h2 class="section-title">
+                This Week
+              </h2>
+
+              <div class="section-title-line"></div>
+
+
+              <!-- NETWORKING MASTERCLASS -->
+
+              <table role="presentation" width="100%" class="event-card">
+
+                <tr>
+
+                  <!-- DATE -->
+
+                  <td class="date-box">
+
+                    <div class="date-month">
+                      SEP
+                    </div>
+
+                    <div class="date-number">
+                      14
+                    </div>
+
+                  </td>
+
+
+                  <!-- EVENT INFORMATION -->
+
+                  <td class="event-info">
+
+                    <h3 class="event-name">
+                      Networking Masterclass
+                    </h3>
+
+                    <p class="event-description">
+                      Build your networking skills and learn how
+                      to create meaningful professional connections.
+                    </p>
+
+                    <!--
+                      REPLACE # WITH THE FORUM RSVP LINK
+                    -->
+
+                   
+                  </td>
+
+                </tr>
+
+              </table>
+
+            </td>
+          </tr>
+
+
+          <!-- =========================
+               GUEST SPEAKER
+               ========================= -->
+
+          <tr>
+            <td class="section">
+
+              <h2 class="section-title">
+                Upcoming Guest Speaker
+              </h2>
+
+              <div class="section-title-line"></div>
+
+
+              <table role="presentation" width="100%" class="speaker-card">
+
+                <tr>
+
+                  <!-- =====================
+                       SPEAKER PHOTO
+                       ===================== -->
+
+                  <td class="speaker-photo">
+
+                    <!--
+                      REPLACE THIS IMAGE URL
+                      WITH ONYI'S PHOTO.
+
+                      Example:
+
+                      <img
+                        src="IMAGE_URL_HERE"
+                        alt="Onyi Odunukwe"
+                        width="210"
+                      >
+                    -->
+
+                    <img
+                      src="onyi.png"
+                      alt="Onyi Odunukwe"
+                      
+    style="
+      width: 210px;
+      height: auto;
+      object-fit: contain;
+    "
+                    >
+
+                  </td>
+
+
+                  <!-- =====================
+                       SPEAKER INFORMATION
+                       ===================== -->
+
+                  <td class="speaker-info">
+
+                    <p class="speaker-label">
+                      Guest Speaker
+                    </p>
+
+                    <h3 class="speaker-name">
+                      Onyi Odunukwe
+                    </h3>
+
+                    <p class="speaker-date">
+                      September 16
+                    </p>
+
+                    <p class="speaker-description">
+                      Join OMBC for an opportunity to hear from
+                      Onyi Odunukwe and learn from their professional
+                      experience.
+                    </p>
+
+                    <!--
+                      REPLACE # WITH THE FORUM RSVP LINK
+                    -->
+
+                    <a
+                      href="https://olemiss.campuslabs.com/engage/event/12664925"
+                      class="button"
+                    >
+                      RSVP on The ForUM
+                    </a>
+
+                  </td>
+
+                </tr>
+
+              </table>
+
+            </td>
+          </tr>
+
+
+          <!-- =========================
+               FOOTER
+               ========================= -->
+
+          <tr>
+            <td class="footer">
+
+              <p class="footer-title">
+                OMBC
+              </p>
+
+              <p class="footer-text">
+                Ole Miss Business Club<br>
+                Develop • Network • Launch
+              </p>
+
+
+              <!-- =====================
+                   SOCIAL LINKS
+                   ===================== -->
+
+              <!--
+                Replace the URLs below with OMBC's
+                actual social media pages.
+              -->
+
+              <a
+                href="https://www.instagram.com/olemissbusinessclub/"
+                target="_blank"
+                class="social-link"
+              >
+                Instagram
+              </a>
+
+              <a
+                href="https://www.linkedin.com/company/theolemissbusinessclub/posts/?feedView=all"
+                target="_blank"
+                class="social-link"
+              >
+                LinkedIn
+              </a>
+              <a
+  href="https://olemissbusinessclub.com/"
+  target="_blank"
+  class="social-link"
+>
+  Website
+</a>
+              <a
+                href="https://web.groupme.com/join_group/105829856/lg3Wdvh0"
+                target="_blank"
+                class="social-link"
+              >
+                Join OMBC
+              </a>
+
+
+              <p class="footer-small">
+                You are receiving this email because you are
+                subscribed to OMBC updates.
+              </p>
+
+            </td>
+          </tr>
+
+        </table>
+
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
